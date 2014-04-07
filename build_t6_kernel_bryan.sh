@@ -32,7 +32,7 @@ export ARCH=arm
 export SUBARCH=arm
 
 # make mrproper
-#make CROSS_COMPILE=$TOOLCHAIN -j`grep 'processor' /proc/cpuinfo | wc -l` mrproper
+#make CROSS_COMPILE=$TOOLCHAIN -j8 mrproper
  
 # remove backup files
 find ./ -name '*~' | xargs rm
@@ -40,7 +40,7 @@ find ./ -name '*~' | xargs rm
 
 # make kernel
 make 't6ul_defconfig'
-make -j`grep 'processor' /proc/cpuinfo | wc -l` CROSS_COMPILE=$TOOLCHAIN #>> compile.log 2>&1 || exit -1
+make -j8 CROSS_COMPILE=$TOOLCHAIN #>> compile.log 2>&1 || exit -1
 
 # Grab modules & zImage
    echo ""
