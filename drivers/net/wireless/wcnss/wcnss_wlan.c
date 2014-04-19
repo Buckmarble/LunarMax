@@ -145,20 +145,10 @@ static void wcnss_remove_sysfs(struct device *dev)
 	}
 }
 
-#if defined(CONFIG_PRIMA_WLAN) && !defined(CONFIG_PRIMA_WLAN_MODULE)
-static struct platform_device wcnss_ready = {
-	.name = "wcnss_ready",
-	.id = -1,
-};
-#endif
-
 static void wcnss_post_bootup(struct work_struct *work)
 {
 	pr_info("[WCNSS]%s: Cancel APPS vote for Iris & Riva\n", __func__);
 
-#if defined(CONFIG_PRIMA_WLAN) && !defined(CONFIG_PRIMA_WLAN_MODULE)
-	platform_device_register(&wcnss_ready);
-#endif
 	
 	wcnss_wlan_power(&penv->pdev->dev, &penv->wlan_config,
 		WCNSS_WLAN_SWITCH_OFF);

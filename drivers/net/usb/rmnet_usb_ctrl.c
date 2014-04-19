@@ -551,26 +551,18 @@ resubmit_int_urb:
 #endif
 	
 	
-	
-	
-	
-	if ( dev->inturb ) {
-		if (!dev->inturb->anchor) {
-			usb_mark_last_busy(udev);
-			usb_anchor_urb(dev->inturb, &dev->rx_submitted);
-			status = usb_submit_urb(dev->inturb, GFP_ATOMIC);
-			if (status) {
-				usb_unanchor_urb(dev->inturb);
-				if (status != -ENODEV)
-					dev_err(dev->devicep,
-					"%s: Error re-submitting Int URB %d\n",
-					__func__, status);
-			}
+	if (!dev->inturb->anchor) {
+		usb_mark_last_busy(udev);
+		usb_anchor_urb(dev->inturb, &dev->rx_submitted);
+		status = usb_submit_urb(dev->inturb, GFP_ATOMIC);
+		if (status) {
+			usb_unanchor_urb(dev->inturb);
+			if (status != -ENODEV)
+				dev_err(dev->devicep,
+				"%s: Error re-submitting Int URB %d\n",
+				__func__, status);
 		}
-	} else {
-		dev_err(dev->devicep, "%s: dev->inturb is NULL\n", __func__);
 	}
-	
 }
 
 int rmnet_usb_ctrl_start_rx(struct rmnet_ctrl_dev *dev)

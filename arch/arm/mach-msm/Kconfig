@@ -1924,30 +1924,6 @@ config MSM_CPU_FREQ_MIN
 
 endif # CPU_FREQ_MSM
 
-config GPU_OVERCLOCK
-	bool "Enable GPU Overclocking option"
-	default n
-	help
-	  Krait 600 GPU overclocking 
-
-config CPU_VOLTAGE_TABLE
-	bool "Enable CPU Voltage Table via sysfs for adjustements"
-	default n
-	help
-	  Krait User Votlage Control
-
-config CPU_OVERCLOCK
-	bool "Enable CPU Overclocking option"
-	default n
-	help
-	  Krait overclocking up to 2.1 GHz
-
-config LOW_CPUCLOCKS
-	bool "Enable ultra low CPU clocks"
-	default n
-	help
-	  Ultra low cpu frequencies enabled for CPU and L2 Cache
-
 config MSM_CPU_AVS
 	bool "Enable software controlled Adaptive Voltage Scaling (AVS)"
 	depends on (ARCH_MSM_SCORPION && QSD_SVS)
@@ -3071,6 +3047,24 @@ config MACH_M7C_DWG
         help
           Support for the HTC APQ8064 M7C_DWG.
 
+config MACH_T6_TL
+        depends on ARCH_APQ8064
+        bool "APQ8064 T6_TL"
+        help
+          Support for the HTC APQ8064 T6_TL.
+
+config MACH_T6_DUG
+        depends on ARCH_APQ8064
+        bool "APQ8064 T6_DUG"
+        help
+          Support for the HTC APQ8064 T6_DUG.
+
+config MACH_T6_DWG
+        depends on ARCH_APQ8064
+        bool "APQ8064 T6_DWG"
+        help
+          Support for the HTC APQ8064 T6_DWG.
+
 config MACH_M7_EVM
         depends on ARCH_APQ8064
         bool "APQ8064 M7_EVM"
@@ -3089,11 +3083,35 @@ config MACH_DLXP_UL
 	help
 	  Support for the HTC APQ8064 DLXP_UL.
 
-config MACH_T6_UL
+config MACH_DLXP_U
+	depends on ARCH_APQ8064
+	bool "APQ8064 DLXP_U"
+	help
+	  Support for the HTC APQ8064 DLXP_U.
+
+config MACH_DLP_DUG
+	depends on ARCH_APQ8064
+	bool "APQ8064 DLP_DUG"
+	help
+	  Support for the HTC APQ8064 DLP_DUG.
+
+config MACH_DLP_DWG
+	depends on ARCH_APQ8064
+	bool "APQ8064 DLP_DWG"
+	help
+	  Support for the HTC APQ8064 DLP_DWG.
+
+config MACH_DLP_DTU
+	depends on ARCH_APQ8064
+	bool "APQ8064 DLP_DTU"
+	help
+	  Support for the HTC APQ8064 DLP_DTU.
+
+config MACH_T6_WL
         depends on ARCH_APQ8064
-        bool "APQ8064 T6_UL"
+        bool "APQ8064 T6_WL"
         help
-          Support for the HTC APQ8064 T6_UL.
+          Support for the HTC APQ8064 T6_WL.
 
 config QSC_MODEM
         default n
@@ -3173,13 +3191,5 @@ config IOEXTENDER
         bool "Enable IOEXTENDER feature"
 	help
 	 To support IOEXTENDER feature
-
-config FORCE_FAST_CHARGE
-	bool "Force AC charge mode at will"
-	default y
-	help
-		A simple sysfs interface to force adapters that
-		are detected as USB to charge as AC.
-
 endif
 

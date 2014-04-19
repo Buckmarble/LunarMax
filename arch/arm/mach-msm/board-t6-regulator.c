@@ -13,9 +13,9 @@
 
 #include <linux/regulator/pm8xxx-regulator.h>
 
-#if defined(CONFIG_MACH_T6_UL)
+#if defined(CONFIG_MACH_DUMMY)
 #include "board-t6ul.h"
-#elif defined(CONFIG_MACH_DUMMY)
+#elif defined(CONFIG_MACH_T6_WL)
 #include "board-t6wl.h"
 #elif defined(CONFIG_MACH_DUMMY)
 #include "board-t6whl.h"
@@ -499,30 +499,16 @@ t6_gpio_regulator_pdata[] __devinitdata = {
 };
 
 struct regulator_init_data t6_saw_regulator_pdata_8921_s5 =
-#ifdef CONFIG_CPU_OVERCLOCK
-	SAW_VREG_INIT(S5, "8921_s5",	       600000, 1400000);
-#else
-	SAW_VREG_INIT(S5, "8921_s5",	       600000, 1300000);
-#endif
+	
+	SAW_VREG_INIT(S5, "8921_s5",	       850000, 1300000);
 struct regulator_init_data t6_saw_regulator_pdata_8921_s6 =
-#ifdef CONFIG_CPU_OVERCLOCK
-	SAW_VREG_INIT(S6, "8921_s6",	       600000, 1400000);
-#else
-	SAW_VREG_INIT(S6, "8921_s6",	       600000, 1300000);
-#endif
+	SAW_VREG_INIT(S6, "8921_s6",	       850000, 1300000);
 
 struct regulator_init_data t6_saw_regulator_pdata_8821_s0 =
-#ifdef CONFIG_CPU_OVERCLOCK
-	SAW_VREG_INIT(8821_S0, "8821_s0",       600000, 1400000);
-#else
-	SAW_VREG_INIT(8821_S0, "8821_s0",       600000, 1300000);
-#endif
+	
+	SAW_VREG_INIT(8821_S0, "8821_s0",       850000, 1300000);
 struct regulator_init_data t6_saw_regulator_pdata_8821_s1 =
-#ifdef CONFIG_CPU_OVERCLOCK
-	SAW_VREG_INIT(8821_S1, "8821_s1",       600000, 1400000);
-#else
-	SAW_VREG_INIT(8821_S1, "8821_s1",       600000, 1300000);
-#endif
+	SAW_VREG_INIT(8821_S1, "8821_s1",       850000, 1300000);
 
 struct pm8xxx_regulator_platform_data
 t6_pm8921_regulator_pdata[] __devinitdata = {

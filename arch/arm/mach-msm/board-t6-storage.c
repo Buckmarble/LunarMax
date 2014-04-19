@@ -26,9 +26,9 @@
 #include <mach/gpiomux.h>
 #include "devices.h"
 
-#if defined(CONFIG_MACH_T6_UL)
+#if defined(CONFIG_MACH_DUMMY)
 #include "board-t6ul.h"
-#elif defined(CONFIG_MACH_DUMMY)
+#elif defined(CONFIG_MACH_T6_WL)
 #include "board-t6wl.h"
 #elif defined(CONFIG_MACH_DUMMY)
 #include "board-t6whl.h"
